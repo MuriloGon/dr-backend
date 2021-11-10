@@ -7,12 +7,11 @@ export class User {
   id: ObjectID;
 
   @Column()
-  firstName: string;
-
+  email: string;
+  
   @Column()
-  lastName: string;
-
+  password: string;
+  
   @Column()
-  age: number;
-
+  role: 'admin' | 'user';
 }
