@@ -10,7 +10,7 @@ export async function getAll() {
 export async function getById(id: string): Promise<Ink | null> {
   let validId: ObjectId | null;
   try {
-    validId =  ObjectId(id);
+    validId = ObjectId(id);
   } catch (err) {
     return null;
   }
@@ -26,10 +26,10 @@ export async function create(ink: Ink) {
   return result;
 }
 
-export async function editById(id:string, ink: Ink) {
+export async function editById(id: string, ink: Ink) {
   let validId: ObjectId | null;
   try {
-    validId =  ObjectId(id);
+    validId = ObjectId(id);
   } catch (err) {
     return null;
   }
@@ -41,10 +41,10 @@ export async function editById(id:string, ink: Ink) {
   return result;
 }
 
-export async function deleteById(id) {
+export async function deleteById(id: string) {
   let validId: ObjectId | null;
   try {
-    validId =  ObjectId(id);
+    validId = ObjectId(id);
   } catch (err) {
     return null;
   }
