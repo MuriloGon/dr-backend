@@ -23,7 +23,7 @@ export const validateInkBody = (ink: Ink) => {
     'wall-b': joi.object<Wall>(wallWithoutId).required(),
     'wall-c': joi.object<Wall>(wallWithoutId).required(),
     'wall-d': joi.object<Wall>(wallWithoutId).required(),
-  });
+  }).required();
   const { error } = schema.validate(ink, { abortEarly: false });
   if (!error) return { error: false };
   return { error: true, details: error.details.map(({ message }) => message) };
