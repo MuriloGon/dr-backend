@@ -15,4 +15,5 @@ ignorePatterns: ["/*.*"]
 plugins:
   - import
   - '@typescript-eslint'
-rules: {}
+rules:
+  '@typescript-eslint/naming-convention': 0
