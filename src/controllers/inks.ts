@@ -29,7 +29,7 @@ export async function editById(req: Request, res: Response) {
   if (!data) {
     return res.status(404).json({ message: 'ink not found' });
   }
-  return res.status(201).json({ message: 'updated ink by id', data });
+  return res.status(200).json({ message: 'updated ink by id', data });
 }
 
 export async function deleteById(req: Request, res: Response) {
