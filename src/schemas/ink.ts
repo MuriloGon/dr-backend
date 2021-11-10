@@ -11,6 +11,7 @@ const wallWithoutId = {
 export const validateInkBody = (ink: Ink) => {
   const schema = joi.object<Ink>({
     createdAt: joi.number().required(),
+    canSize: joi.number().required(),
     'wall-a': joi.object<Wall>(wallWithoutId).required(),
     'wall-b': joi.object<Wall>(wallWithoutId).required(),
     'wall-c': joi.object<Wall>(wallWithoutId).required(),

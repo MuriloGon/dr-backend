@@ -31,6 +31,9 @@ export class Ink {
   createdAt: number;
 
   @Column()
+  canSize: number;
+
+  @Column()
   'wall-a': Wall;
 
   @Column()
