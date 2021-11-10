@@ -8,14 +8,6 @@ const wallWithoutId = {
   windows: joi.number().required(),
 };
 
-// const wallWithtId = {
-//   id: joi.string().required(),
-//   doors: joi.number().required(),
-//   height: joi.number().required(),
-//   width: joi.number().required(),
-//   windows: joi.number().required(),
-// };
-
 export const validateInkBody = (ink: Ink) => {
   const schema = joi.object<Ink>({
     createdAt: joi.number().required(),

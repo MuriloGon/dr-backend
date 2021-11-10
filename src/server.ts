@@ -1,28 +1,41 @@
 import express from 'express';
 import cors from 'cors';
-import * as inkMiddlewares from './controllers/inks';
-import * as loginMiddlewares from './controllers/login';
-import { validateBodyObj } from './middlewares/inks';
+import * as inkControllers from './controllers/inks';
+import * as loginControllers from './controllers/login';
+import * as inksMiddlewares from './middlewares/inks';
+import * as userMiddlewares from './middlewares/user';
+import * as authMiddlewaresfrom from './middlewares/auth';
 
 const app = express();
 app.use(express.json());
-app.use(cors({ 
+app.use(cors({
   methods: ['GET', 'POST', 'DELETE', 'PUT'],
   origin: '*',
 }));
 
-app.post('/login', loginMiddlewares.login);
+app.post('/login',
+  userMiddlewares.validateBodyObj,
+  loginControllers.login);
 
-app.get('/inks', inkMiddlewares.getAll);
+app.get('/inks', inkControllers.getAll);
 
-app.get('/inks/:id',  inkMiddlewares.getById);
+app.get('/inks/:id', inkControllers.getById);
 
-app.delete('/inks/:id', inkMiddlewares.deleteById);
+app.delete('/inks/:id',
+  authMiddlewaresfrom.validateBodyObj,
+  inkControllers.deleteById,
+);
 
-app.use(validateBodyObj);
 
-app.post('/inks', inkMiddlewares.create);
-app.put('/inks/:id', inkMiddlewares.editById);
+app.post('/inks',
+  inksMiddlewares.validateBodyObj,
+  inkControllers.create,
+);
+app.put('/inks/:id',
+  authMiddlewaresfrom.validateBodyObj,
+  inksMiddlewares.validateBodyObj,
+  inkControllers.editById,
+);
 
 
 export default app;
