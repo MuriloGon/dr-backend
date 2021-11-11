@@ -1,12 +1,19 @@
 # Backend Digital Republic Challenge
 
-## Env Variables
+## Running and testing the application
 
 Steps to run this project:
 
+> It's necessary to have a local mongodb instance active
+
+> Running:
+
 1. Run `npm i` command
-2. Setup database settings inside `ormconfig.json` file
-3. Run `npm start` command
+2. Run `npm start` command
+
+> testing
+
+1. Run `npm test` command
 
 ## API routes
 
