@@ -1,11 +1,10 @@
-import { Entity, ObjectIdColumn, ObjectID, Column } from 'typeorm';
-
+import { Entity, ObjectIdColumn, Column } from 'typeorm';
 
 @Entity()
 export class Wall {
 
   @ObjectIdColumn()
-  id?: ObjectID;
+  id?: string;
 
   @Column()
   width: number;
@@ -25,7 +24,7 @@ export class Wall {
 export class Ink {
 
   @ObjectIdColumn()
-  id: ObjectID;
+  id: string;
 
   @Column({ type: 'datetime' })
   createdAt: number;
@@ -44,6 +43,4 @@ export class Ink {
 
   @Column()
   'wall-d': Wall;
-
-
 }
